@@ -4,8 +4,6 @@ var init = function(e) {
   if(bH > cH){
     $('body').addClass('centered-content');
   }
-
-  console.log(bH, cH)
 };
 
 $(document).ready(function () {
