@@ -1,7 +1,6 @@
 .page
   background-image: url('../images/bg/mobile.jpg')
   background-position: 50% 0
-  background-repeat: no-repeat
   background-size: cover
   color: $main-color
   font-family: $main-font
@@ -10,15 +9,18 @@
   padding-top: 72px
 
   @media(min-width: 768px)
-    align-items: center
     background-image: url('../images/bg/tablet.jpg')
-    display: flex
-    justify-content: center
     padding-top: 80px
     padding-bottom: 80px
 
   @media(min-width: 1200px)
     background-image: url('../images/bg/desktop.jpg')
+
+  &.centered-content
+    @media(min-width: 768px)
+      display: flex
+      flex-direction: column
+      justify-content: center
 
   &__header
     left: 0
@@ -44,7 +46,9 @@
       vertical-align: top
 
   &__inner
-    max-width: 1480px
+    margin-left: auto
+    margin-right: auto
+    max-width: 1420px
     padding-left: 40px
     padding-right: 40px
     padding-bottom: 60px
@@ -56,8 +60,20 @@
       padding-bottom: 0
 
 .person
+  position: relative
+
   @media(min-width: 768px)
-    display: flex
+    background: url('../images/decor/top.svg') no-repeat 0 0 / 100% auto transparent
+    padding-top: 80px
+    padding-bottom: 80px
+
+  @media(min-width: 1900px)
+    padding-top: 135px
+    padding-bottom: 135px
+
+  &__inner
+    @media(min-width: 768px)
+      display: flex
 
   &__block
     @media(min-width: 768px)
@@ -69,11 +85,62 @@
       padding-left: 30px
       padding-right: 30px
 
+    &:first-child
+      margin-bottom: 26px
+
+      @media(min-width: 768px)
+        margin-bottom: 0
+
   &__image
+    background-color: #fff
+    margin-bottom: 11px
+    overflow: hidden
+    position: relative
+    padding-bottom: 64%
+
+    @media(min-width: 768px)
+      margin-bottom: 16px
+
     img
-      height: auto
-      max-width: 100%
-      vertical-align: top
+      height: 100%
+      left: 50%
+      position: absolute
+      top: 0
+      transform: translateX(-50%)
+      width: auto
+
+  &__stats
+    display: flex
+    justify-content: space-between
+
+  &__stat
+    text-align: center
+
+  &__stat-value
+    font-family: $secondary-font
+    font-size: 20px
+    line-height: 120%
+
+    @media(min-width: 768px)
+      font-size: 26px
+
+    @media(min-width: 1400px)
+      font-size: 36px
+
+  &__stat-title
+    font-size: 12px
+    line-height: 140%
+    margin-left: auto
+    margin-right: auto
+    width: 84px
+
+    @media(min-width: 768px)
+      font-size: 14px
+      width: 92px
+
+    @media(min-width: 1400px)
+      font-size: 18px
+      width: 100%
 
   &__name
     font-family: $secondary-font
@@ -173,6 +240,10 @@
     margin-right: 11px
     width: 24px
 
+    &:hover
+      .person__social-icon
+        fill: $secondary-color
+
     @media(min-width: 768px)
       height: 32px
       margin-right: 16px
@@ -181,8 +252,54 @@
   &__social-icon
     fill: $main-color
     height: 24px
+    transition: fill 0.3s
     width: 24px
 
     @media(min-width: 768px)
       height: 32px
       width: 32px
+
+  &__button-block
+    margin-top: 40px
+    text-align: center
+
+    @media(min-width: 768px)
+      background: url('../images/decor/bottom.svg') no-repeat 0 50% / 100% auto transparent
+      bottom: 0
+      left: 0
+      margin-top: 0
+      position: absolute
+      top: auto
+      width: 100%
+      z-index: 1
+
+  &__button
+    border-radius: 22px
+    background-color: $secondary-color
+    color: #fff
+    display: inline-block
+    font-size: 14px
+    font-weight: 700
+    height: 44px
+    line-height: 130%
+    max-width: 240px
+    padding: 13px
+    text-align: center
+    text-decoration: none
+    transition: background-color 0.3s
+    width: 100%
+
+    @media(min-width: 768px)
+      font-size: 16px
+      max-width: 190px
+      padding-top: 11px
+      padding-bottom: 12px
+
+    @media(min-width: 1400px)
+      font-size: 18px
+      min-width: 380px
+      padding-top: 10px
+      padding-bottom: 11px
+
+    &:hover
+      background-color: darken($secondary-color, 5%)
